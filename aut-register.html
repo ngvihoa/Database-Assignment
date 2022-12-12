@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aut.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="main" style="background-image: url('background.jpg');">
+        <form action="" method="POST" class="form" id="form-1" style="background: var(--head-background);box-shadow: 1px 2px 10px 0 rgba(66, 71, 76);">
+            <h3 class="heading">Create an Account</h3>
+            <p class="desc"></p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">FULLNAME</label>
+                <input id="fullname" name="fullname" type="text" placeholder="Example: Adam Smith" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="username" class="form-label">USERNAME</label>
+                <input id="username" name="username" type="text" placeholder="Example: AdamSmith123@" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">EMAIL</label>
+                <input id="email" name="email" type="text" placeholder="Example: example123@gmail.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">PASSWORD</label>
+                <input id="password" name="password" type="password" placeholder="Enter the password" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">Register</button>
+            <div class="link-register">
+                <p>Already have an account?</p> <a href="aut-login.html">Login</a>
+            </div>
+        </form>
+
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Validator({
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isRequired('#fullname', 'Please enter your fullname.'),
+                    Validator.isRequired('#username', 'Please enter your usename.'),
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                ],
+                onSubmit: function (data) {
+                    //you can call API here link to chat app
+                    console.log(data);
+                }
+            });
+        });
+
+    </script>
+    <script src="aut.js"></script>
+
+</body>
+</html>

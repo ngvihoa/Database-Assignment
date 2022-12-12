@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>S Team Game Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="head-nav">
-        <div class="head-nav-b1">
-            <div class="head-nav-logo"><img src="logo1_1.png"></div>
-            <a href="">STORE</a>
-            <a href="">ABOUT</a>
-            <a href="">CONTACT</a>
-        </div>
-        <div class="head-nav-b2">
-            <i class="fa-solid fa-user"></i>
-            <div class="head-nav-user">USERNAME</div>
-        </div>
+        <ul class="head-nav-b1">
+            <li class="head-nav-logo"><img src="logo1_1.png"></li>
+            <li class="underline"><a href="">STORE</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">CONTACT</a></li>
+        </ul>
+        <ul class="head-nav-b2">
+            <li class="head-nav-user-box">
+                <a href="">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="head-nav-user">USERNAME</div>
+                </a>
+                <ul>
+                    <li><a href="index.html">ACCOUNT</a></li>
+                    <li><a href="aut-login.html">SIGN OUT</a></li>
+                </ul>
+            </li>
+            
+        </ul>
     </div>
 
     <div class="sub-head">
@@ -29,11 +38,8 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search Store" class="search-box-input">
             </div>
-            <div class="sub-head-discover"><a href="">Discover</a></div>
+            <div class="sub-head-discover underline"><a href="">Discover</a></div>
             <div class="sub-head-browse"><a href="">Browse</a></div>
-        </div>
-        <div class="sub-head-b2">
-            <div class="sub-head-wishlist"><a href="">WishList</a></div>
             <div class="sub-head-cart"><a href="">Cart</a></div>
         </div>
     </div>
@@ -64,7 +70,7 @@
 
         <div class="body-outer-2">
             <div class="popular-bar">
-                <div class="popular"><a href="">Most Popular</a></div>
+                <div class="popular"><a href=""><div>Most Popular</div><i class="fa-solid fa-angle-right"></i></a></div>
                 <div class="swiper-nav">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
