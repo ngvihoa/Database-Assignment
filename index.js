@@ -77,3 +77,99 @@ var swiper4 = new Swiper(".body-inner-8", {
   },
 });
 
+
+// Initial Ratings
+
+// Total Stars
+const starsTotal = 5;
+
+// get the rating number
+let rate = document.querySelector(".number-rating").innerHTML;
+
+
+// Get ratings
+function getRatings(rate) {
+    // Get percentage
+    let starPercentage = (rate / starsTotal) * 100;
+
+    // Round to nearest 10
+    let starPercentageRounded = `${Math.round(starPercentage / 5) * 5}%`;
+
+    // Set width of stars-inner to percentage
+    document.querySelector('.stars-inner').style.width = starPercentageRounded;
+
+    // Add number rating
+    document.querySelector('.number-rating').innerHTML = rate;
+  
+}
+
+getRatings(rate);
+
+
+// change page
+document.querySelector(".sub-head-browse").addEventListener("click", ()=>{
+  document.querySelectorAll(".sub-head-e").forEach((e)=>{
+    e.classList.remove("underline");
+    if(e.classList.contains("sub-head-browse")) e.classList.add("underline");
+  });
+  document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("browse")) e.classList.remove("no-display");
+  });
+})
+
+document.querySelector(".button7-learnmore").addEventListener("click", ()=>{
+  document.querySelectorAll(".sub-head-e").forEach((e)=>{
+    e.classList.remove("underline");
+    if(e.classList.contains("sub-head-browse")) e.classList.add("underline");
+  });
+  document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("browse")) e.classList.remove("no-display");
+  });
+})
+
+document.querySelector(".sub-head-cart").addEventListener("click", ()=>{
+  document.querySelectorAll(".sub-head-e").forEach((e)=>{
+    e.classList.remove("underline");
+    if(e.classList.contains("sub-head-cart")) e.classList.add("underline");
+  });
+  document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("cart")) e.classList.remove("no-display");
+  })
+})
+
+document.querySelector(".sub-head-library").addEventListener("click", ()=>{
+  document.querySelectorAll(".sub-head-e").forEach((e)=>{
+    e.classList.remove("underline");
+    if(e.classList.contains("sub-head-library")) e.classList.add("underline");
+  });
+  document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("library")) e.classList.remove("no-display");
+  })
+})
+
+document.querySelector(".sub-head-discover").addEventListener("click", ()=>{
+  document.querySelectorAll(".sub-head-e").forEach((e)=>{
+    e.classList.remove("underline");
+    if(e.classList.contains("sub-head-discover")) e.classList.add("underline");
+  });
+  document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("discover")) e.classList.remove("no-display");
+  })
+})
+
+
+// show game view
+document.querySelectorAll(".game").forEach((a)=>{
+  a.addEventListener("click", ()=>{
+    document.querySelectorAll(".body").forEach((e)=>{
+      e.classList.add("no-display");
+      if(e.classList.contains("gv")) e.classList.remove("no-display");
+    });
+    window.scrollTo(0, 0);
+  })
+});
