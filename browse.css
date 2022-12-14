@@ -21,6 +21,9 @@ a{
     color: var(--sub-text);
 }
 
+.no-display{
+    display: none;
+}
 
 /*-------------   head-nav -------------*/
 .head-nav{
@@ -197,46 +200,48 @@ a{
     color: var(--sub-text);
     margin-bottom: 60px;;
 }
-/*   body-outer-2    */
-.body .body-outer-2{
+/*   body-outer-6    */
+.body .body-outer-6{
     /* border: 1px solid blue; */
     width: inherit;
     height: 100%;
     padding: 40px 0 50px 0;
 }
 
-.body .body-outer-2 .popular-bar{
+.body .body-outer-6 .popular-bar{
     font-size: 1.5rem;
     height: 30px;
     align-items: baseline;
     margin-bottom: 10px;
 }
-.body .body-outer-2 .popular-bar .popular{
+.body .body-outer-6 .popular-bar .popular{
     height: 100%;
     font-size: 1.5rem;
     color: var(--text);
 }
 
-.swiper-nav{
+.body-inner-6 .swiper-nav{
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
     z-index: 10;
 }
-.swiper-pagination{
+.body-inner-6 .swiper-nav .swiper-pagination{
     display: inline-block;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
     position:unset;
 }
-.swiper-pagination-bullets.swiper-pagination-horizontal{
+.body-inner-6 .swiper-nav .swiper-pagination-bullets.swiper-pagination-horizontal{
     width: 400px;
 }
-.swiper-button-next, .swiper-button-prev{
+.body-inner-6 .swiper-nav .swiper-button-next,
+.body-inner-6 .swiper-nav .swiper-button-prev{
     position: initial;
 }
-.swiper-button-next:after, .swiper-button-prev:after{
+.body-inner-6 .swiper-nav .swiper-button-next:after,
+.body-inner-6 .swiper-nav .swiper-button-prev:after{
     content: 'next';
     font-family: swiper-icons;
     font-size: 1rem;
@@ -247,17 +252,17 @@ a{
     color: var(--text);
     margin-inline: 10px;
 }
-.swiper-button-prev:after{
+.body-inner-6 .swiper-nav .swiper-button-prev:after{
     content: 'prev';
 }
 
-.body-outer-2 .body2-info{
+.body-outer-6 .body6-info{
     display: flex;
     gap: 30px;
     height: 100%;
 }
 
-.body-outer-2 .body-inner-2{
+.body-outer-6 .body-inner-6{
     /* border: 1px solid green; */
     width: 100%;
     height:fit-content;
@@ -265,7 +270,7 @@ a{
     flex-direction: column;
 }
 
-.body-outer-2 .body-inner-2 .body2{
+.body-outer-6 .body-inner-6 .body6{
     width: 100%;
     height: auto;
     /* display: flex;
@@ -273,7 +278,7 @@ a{
     /* gap: 20px; */
 }
 
-.body-outer-2 .body-inner-2 .body2 .body2-inner{
+.body-outer-6 .body-inner-6 .body6 .body6-inner{
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -281,20 +286,20 @@ a{
     /* border: 1px solid yellow; */
 }
 
-.body2 .body2-inner .game{
+.body6 .body6-inner .game{
     /* border: 1px solid red; */
     width: 23.5%;
     height: 430px;
     border-radius: inherit;
 }
 
-.body2 .body2-inner .game a{
+.body6 .body6-inner .game a{
     width: 100%;
     height: 100%;
     color: var(--text);
 }
 
-.body2 .body2-inner .game a .game-img{
+.body6 .body6-inner .game a .game-img{
     width: 100%;
     height: 280px;
     object-fit: cover;
@@ -303,37 +308,37 @@ a{
     border-radius: 5px;
 }
 
-.body2 .body2-inner .game a .type{
+.body6 .body6-inner .game a .type{
     color: var(--sub-text);
     margin-bottom: 15px;
     font-size: 0.6rem;
 }
 
-.body2 .body2-inner .game a .title{
+.body6 .body6-inner .game a .title{
     font-size: 0.9rem;
     margin-bottom: 15px;
 }
 
-.body2 .body2-inner .game a .price{
+.body6 .body6-inner .game a .price{
     font-size: 0.9rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.body2 .body2-inner .game a .price .true-price, 
-.body2 .body2-inner .game a .price .sale-price{
+.body6 .body6-inner .game a .price .true-price, 
+.body6 .body6-inner .game a .price .sale-price{
     display: flex;
     align-items: baseline;
 }
 
-.body2 .body2-inner .game a .price .sale-price{
+.body6 .body6-inner .game a .price .sale-price{
     margin-bottom: 10px;
     margin-right: 10px;;
     color: var(--sub-text);
 }
 
-.body2 .body2-inner .game a .price .sale-price .sale-box{
+.body6 .body6-inner .game a .price .sale-price .sale-box{
     text-decoration:initial;
     color: var(--text);
     padding: 3px;
@@ -343,18 +348,18 @@ a{
     font-size: 0.8rem;
 }
 
-.body2 .body2-inner .game a .price .sale-price .old-price{
+.body6 .body6-inner .game a .price .sale-price .old-price{
     display: flex;
     text-decoration: line-through;
 
 }
 
-.body2 .body2-inner .game a .price .true-price p:first-child,
-.body2 .body2-inner .game a .price .sale-price .old-price p:first-child{
+.body6 .body6-inner .game a .price .true-price p:first-child,
+.body6 .body6-inner .game a .price .sale-price .old-price p:first-child{
     text-decoration: underline;
 }
 
-.swiper-pagination-bullet {
+.body-inner-6 .swiper-nav .swiper-pagination .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -365,23 +370,23 @@ a{
     background: rgba(0, 0, 0, 0.2);
 }
 
-.swiper-pagination-bullet-active {
+.body-inner-6 .swiper-nav .swiper-pagination .swiper-pagination-bullet-active {
     background: #007aff;
 }
 
-.body-outer-2 .body2-info .body2-filter{
+.body-outer-6 .body6-info .body6-filter{
     width: 30%;
     /* border: 1px solid red; */
 }
 
-.body-outer-2 .body2-info .body2-filter .popular-bar > *{
+.body-outer-6 .body6-info .body6-filter .popular-bar > *{
     font-size: 1rem;
     display: flex;
     align-items: center;
     color: var(--text);
 }
 
-.body2-info .body2-filter .search-box{
+.body6-info .body6-filter .search-box{
     width: 100%;
     background-color: var(--head-background);
     padding: 15px 10px;
@@ -391,11 +396,11 @@ a{
     border-radius: 5px;
 }
 
-.body2-info .body2-filter .search-box i{
+.body6-info .body6-filter .search-box i{
     font-size: 1.1rem;
 }
 
-.body2-info .body2-filter .search-box input{
+.body6-info .body6-filter .search-box input{
     flex: 1;
     outline: none;
     border: none;
@@ -404,7 +409,7 @@ a{
     color: var(--text);
 }
 
-.body2-info .body2-filter .header-tag{
+.body6-info .body6-filter .header-tag{
     font-size: 1.1rem;
     color: var(--text);
     margin: 10px 0 0 0;
@@ -415,7 +420,7 @@ a{
     border-bottom: 1px solid var(--head-background);
 }
 
-.body2-info .body2-filter ul li{
+.body6-info .body6-filter ul li{
     list-style: none;
     padding: 20px 0;
     display: flex;
@@ -423,7 +428,7 @@ a{
     font-weight: 300;
 }
 
-.body2-info .body2-filter ul li:hover{
+.body6-info .body6-filter ul li:hover{
     color: var(--text);
 }
 
@@ -439,6 +444,7 @@ a{
 
 /*      Footer      */
 .footer{
+    margin-top: 100px;
     background-color: var(--head-background);
     height: 250px;
     padding: 0 20%;
@@ -489,3 +495,214 @@ a{
 
 }
 
+
+/*          Game View          */
+.game-view{
+    padding: 30px 0 0 0;
+}
+
+.game-view .game-head{
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+.game-view .game-body{
+    display: flex;
+    gap: 50px;
+}
+
+.game-view .game-body .main-body{
+    width: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.game-view .game-body .main-body img{
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.game-view .game-body .main-body .foreword{
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.game-view .game-body .main-body .game-genre{
+    width: 100%;
+    padding: 0 30px;
+    color: var(--text);
+    border-left: 1px solid var(--sub-text);
+}
+
+.game-view .game-body .main-body .game-genre .head{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.game-view .game-body .main-body .game-genre .genre{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.game-view .game-body .main-body .game-genre .genre div{
+    padding: 5px;
+    background-color: var(--head-background);
+    border-radius: 3px;
+    font-size: 0.7rem;
+}
+
+.game-view .game-body .main-body .game-descript p:first-child{
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.game-view .game-body .main-body .specification > p:first-child{
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.game-view .game-body .main-body .specification .plat-table{
+    background-color: var(--head-background);
+    border-radius: 10px;
+}
+
+.game-view .game-body .main-body .specification .platform-req{
+    padding: 60px 60px 0px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.game-view .game-body .main-body .specification .platform-req .plat{
+    font-weight: bold;
+    padding-bottom: 20px;
+    color: var(--text);
+}
+
+.game-view .game-body .main-body .specification .plat-table .platform-req .no{
+    border-top: 1px solid var(--sub-text);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text);
+    padding: 10px 0 30px 0;
+}
+
+.specification .platform-req .no .os p:last-child,
+.specification .platform-req .no .cpu p:last-child,
+.specification .platform-req .no .ram p:last-child,
+.specification .platform-req .no .min-storage p:last-child,
+.specification .platform-req .no .gpu p:last-child{
+    color: var(--sub-text);
+    margin-top: 5px;
+}
+
+
+
+.game-view .game-body .core-info{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.game-view .game-body .core-info img{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.game-view .game-body .core-info .game-type{
+    margin: 20px 0;
+    font-size: 0.7rem;
+    color: var(--text);
+    padding: 10px 15px;
+    background-color: var(--head-background);
+    width:fit-content;
+    border-radius: 5px;
+}
+
+.game-view .game-body .core-info .game-price{
+    display: flex;
+    gap: 10px;
+    color: var(--text);
+}
+
+.game-view .game-body .core-info .game-price .true-price, 
+.game-view .game-body .core-info .game-price .sale-price{
+    display: flex;
+    align-items: baseline;
+}
+
+.game-view .game-body .core-info .game-price .sale-price{
+    margin-bottom: 10px;
+    color: var(--sub-text);
+}
+
+.game-view .game-body .core-info .game-price .sale-price .sale-box{
+    text-decoration:initial;
+    color: var(--text);
+    padding: 3px;
+    margin-right: 10px;
+    background-color: #0074e4;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.game-view .game-body .core-info .game-price .sale-price .old-price{
+    display: flex;
+    text-decoration: line-through;
+
+}
+
+.game-view .game-body .core-info .game-price .true-price p:first-child,
+.game-view .game-body .core-info .game-price .sale-price .old-price p:first-child{
+    text-decoration: underline;
+}
+
+.game-view .game-body .core-info .add-cart{
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #0074e4;
+    color: var(--text);
+    transition: 0.3s ease;
+}
+
+.game-view .game-body .core-info .add-cart:hover{
+    background-color:#2d90f9;
+    transition: 0.3s ease;
+}
+
+.game-view .game-body .core-info .core {
+    width: 100%;
+    color: var(--text);
+}
+
+.game-view .game-body .core-info .core div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--head-background);
+}
+
+.game-view .game-body .core-info .core div p:first-child{
+    color: var(--sub-text);
+    font-weight: bolder;
+}

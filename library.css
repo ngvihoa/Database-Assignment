@@ -197,46 +197,48 @@ a{
     color: var(--sub-text);
     margin-bottom: 60px;;
 }
-/*   body-outer-2    */
-.body .body-outer-2{
+/*   body-outer-8    */
+.body .body-outer-8{
     /* border: 1px solid blue; */
     width: inherit;
     height: 100%;
     padding: 40px 0 50px 0;
 }
 
-.body .body-outer-2 .popular-bar{
+.body .body-outer-8 .popular-bar{
     font-size: 1.5rem;
     height: 30px;
     align-items: baseline;
     margin-bottom: 10px;
 }
-.body .body-outer-2 .popular-bar .popular{
+.body .body-outer-8 .popular-bar .popular{
     height: 100%;
     font-size: 1.5rem;
     color: var(--text);
 }
 
-.swiper-nav{
+.body-inner-8 .swiper-nav{
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
     z-index: 10;
 }
-.swiper-pagination{
+.body-inner-8 .swiper-nav .swiper-pagination{
     display: inline-block;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
     position:unset;
 }
-.swiper-pagination-bullets.swiper-pagination-horizontal{
+.body-inner-8 .swiper-nav .swiper-pagination-bullets.swiper-pagination-horizontal{
     width: 400px;
 }
-.swiper-button-next, .swiper-button-prev{
+.body-inner-8 .swiper-nav .swiper-button-next,
+.body-inner-8 .swiper-nav .swiper-button-prev{
     position: initial;
 }
-.swiper-button-next:after, .swiper-button-prev:after{
+.body-inner-8 .swiper-nav .swiper-button-next:after,
+.body-inner-8 .swiper-nav .swiper-button-prev:after{
     content: 'next';
     font-family: swiper-icons;
     font-size: 1rem;
@@ -247,17 +249,17 @@ a{
     color: var(--text);
     margin-inline: 10px;
 }
-.swiper-button-prev:after{
+.body-inner-8 .swiper-nav .swiper-button-prev:after{
     content: 'prev';
 }
 
-.body-outer-2 .body2-info{
+.body-outer-8 .body8-info{
     display: flex;
     gap: 30px;
     height: 100%;
 }
 
-.body-outer-2 .body-inner-2{
+.body-outer-8 .body-inner-8{
     /* border: 1px solid green; */
     width: 100%;
     height:fit-content;
@@ -265,7 +267,7 @@ a{
     flex-direction: column;
 }
 
-.body-outer-2 .body-inner-2 .body2{
+.body-outer-8 .body-inner-8 .body8{
     width: 100%;
     height: auto;
     /* display: flex;
@@ -273,7 +275,7 @@ a{
     /* gap: 20px; */
 }
 
-.body-outer-2 .body-inner-2 .body2 .body2-inner{
+.body-outer-8 .body-inner-8 .body8 .body8-inner{
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -281,20 +283,20 @@ a{
     /* border: 1px solid yellow; */
 }
 
-.body2 .body2-inner .game{
+.body8 .body8-inner .game{
     /* border: 1px solid red; */
     width: 23.5%;
     height: 430px;
     border-radius: inherit;
 }
 
-.body2 .body2-inner .game a{
+.body8 .body8-inner .game a{
     width: 100%;
     height: 100%;
     color: var(--text);
 }
 
-.body2 .body2-inner .game a .game-img{
+.body8 .body8-inner .game a .game-img{
     width: 100%;
     height: 280px;
     object-fit: cover;
@@ -303,37 +305,37 @@ a{
     border-radius: 5px;
 }
 
-.body2 .body2-inner .game a .type{
+.body8 .body8-inner .game a .type{
     color: var(--sub-text);
     margin-bottom: 15px;
     font-size: 0.6rem;
 }
 
-.body2 .body2-inner .game a .title{
+.body8 .body8-inner .game a .title{
     font-size: 0.9rem;
     margin-bottom: 15px;
 }
 
-.body2 .body2-inner .game a .price{
+.body8 .body8-inner .game a .price{
     font-size: 0.9rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.body2 .body2-inner .game a .price .true-price, 
-.body2 .body2-inner .game a .price .sale-price{
+.body8 .body8-inner .game a .price .true-price, 
+.body8 .body8-inner .game a .price .sale-price{
     display: flex;
     align-items: baseline;
 }
 
-.body2 .body2-inner .game a .price .sale-price{
+.body8 .body8-inner .game a .price .sale-price{
     margin-bottom: 10px;
     margin-right: 10px;;
     color: var(--sub-text);
 }
 
-.body2 .body2-inner .game a .price .sale-price .sale-box{
+.body8 .body8-inner .game a .price .sale-price .sale-box{
     text-decoration:initial;
     color: var(--text);
     padding: 3px;
@@ -343,18 +345,18 @@ a{
     font-size: 0.8rem;
 }
 
-.body2 .body2-inner .game a .price .sale-price .old-price{
+.body8 .body8-inner .game a .price .sale-price .old-price{
     display: flex;
     text-decoration: line-through;
 
 }
 
-.body2 .body2-inner .game a .price .true-price p:first-child,
-.body2 .body2-inner .game a .price .sale-price .old-price p:first-child{
+.body8 .body8-inner .game a .price .true-price p:first-child,
+.body8 .body8-inner .game a .price .sale-price .old-price p:first-child{
     text-decoration: underline;
 }
 
-.swiper-pagination-bullet {
+.body-inner-8 .swiper-nav .swiper-pagination .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -365,23 +367,23 @@ a{
     background: rgba(0, 0, 0, 0.2);
 }
 
-.swiper-pagination-bullet-active {
+.body-inner-8 .swiper-nav .swiper-pagination .swiper-pagination-bullet-active {
     background: #007aff;
 }
 
-.body-outer-2 .body2-info .body2-filter{
+.body-outer-8 .body8-info .body8-filter{
     width: 30%;
     /* border: 1px solid red; */
 }
 
-.body-outer-2 .body2-info .body2-filter .popular-bar > *{
+.body-outer-8 .body8-info .body8-filter .popular-bar > *{
     font-size: 1rem;
     display: flex;
     align-items: center;
     color: var(--text);
 }
 
-.body2-info .body2-filter .search-box{
+.body8-info .body8-filter .search-box{
     width: 100%;
     background-color: var(--head-background);
     padding: 15px 10px;
@@ -391,11 +393,11 @@ a{
     border-radius: 5px;
 }
 
-.body2-info .body2-filter .search-box i{
+.body8-info .body8-filter .search-box i{
     font-size: 1.1rem;
 }
 
-.body2-info .body2-filter .search-box input{
+.body8-info .body8-filter .search-box input{
     flex: 1;
     outline: none;
     border: none;
@@ -404,7 +406,7 @@ a{
     color: var(--text);
 }
 
-.body2-info .body2-filter .header-tag{
+.body8-info .body8-filter .header-tag{
     font-size: 1.1rem;
     color: var(--text);
     margin: 10px 0 0 0;
@@ -415,7 +417,7 @@ a{
     border-bottom: 1px solid var(--head-background);
 }
 
-.body2-info .body2-filter ul li{
+.body8-info .body8-filter ul li{
     list-style: none;
     padding: 20px 0;
     display: flex;
@@ -423,7 +425,7 @@ a{
     font-weight: 300;
 }
 
-.body2-info .body2-filter ul li:hover{
+.body8-info .body8-filter ul li:hover{
     color: var(--text);
 }
 

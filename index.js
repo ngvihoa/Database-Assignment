@@ -15,9 +15,6 @@ var swiper = new Swiper(".body-inner-1", {
       },
     },
   });
-
-
-
  
 var swiper2 = new Swiper(".body-inner-2", {
   slidesPerView: 5,
@@ -45,6 +42,38 @@ var swiper2 = new Swiper(".body-inner-2", {
       950: {
           slidesPerView: 5,
       },
+  },
+});
+
+var swiper3 = new Swiper(".body-inner-6", {
+  slidesPerView: 1,
+  allowTouchMove: false,
+  navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + "</span>";
+    },
+  },
+});
+
+var swiper4 = new Swiper(".body-inner-8", {
+  slidesPerView: 1,
+  allowTouchMove: false,
+  navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + "</span>";
+    },
   },
 });
 

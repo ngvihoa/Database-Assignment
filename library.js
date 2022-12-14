@@ -1,4 +1,4 @@
-var swiper = new Swiper(".body-inner-2", {
+var swiper4 = new Swiper(".body-inner-8", {
     slidesPerView: 1,
     allowTouchMove: false,
     navigation: {
