@@ -291,21 +291,9 @@ a{
 }
 .body .body-outer-2 .popular-bar .popular{
     height: 100%;
-}
-.body .body-outer-2 .popular-bar .popular:hover a{
-    gap: 0 11px;
-    transition: 0.3s ease;
-}
-.body .body-outer-2 .popular-bar .popular a{
-    display: flex;
-    align-items: baseline;
     color: var(--text);
-    gap: 0 7px;
-    transition: 0.3s ease;
 }
-.body .body-outer-2 .popular-bar .popular a i{
-    font-size: 1.2rem;
-}
+
 .body-outer-2 .popular-bar .swiper-nav .swiper-button-next,
 .body-outer-2 .popular-bar .swiper-nav .swiper-button-prev{
     position: initial;
@@ -780,6 +768,15 @@ a{
     /* gap: 20px; */
 }
 
+.body6 .no-game{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
 .body-outer-6 .body-inner-6 .body6 .body6-inner{
     width: 80%;
     display: flex;
@@ -793,6 +790,7 @@ a{
     width: 23.5%;
     height: 430px;
     border-radius: inherit;
+    cursor: pointer;
 }
 
 .body6 .body6-inner .game a{
@@ -1030,6 +1028,7 @@ a{
     width: 23.5%;
     height: 430px;
     border-radius: inherit;
+    cursor: pointer;
 }
 
 .body8 .body8-inner .game a{
@@ -1249,7 +1248,7 @@ a{
 .body .cart-body .cart-game-list .game-game .game-action{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items:flex-end;
     width: 100%;
     height: 100%;
@@ -1259,6 +1258,7 @@ a{
 .body .cart-body .cart-game-list .game-game .game-action .price{
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .cart-body .cart-game-list .game-game .game-action .price .free-price,
@@ -1292,11 +1292,20 @@ a{
     text-decoration: underline;
 }
 
+.cart-body .cart-game-list .game-game .game-action .sale-range{
+    color: var(--text);
+    font-size: 0.8rem;
+    /* font-style: italic; */
+    margin: 10px 0;
+}
 
 .body .cart-body .cart-game-list .game-game .game-action .remove{
     border-bottom: 1px solid var(--sub-text);
     cursor: pointer;
-    transition: 0.3s ease
+    transition: 0.3s ease;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
 }
 
 .body .cart-body .cart-game-list .game-game .game-action .remove:hover{
@@ -1580,6 +1589,10 @@ a{
 .game-view .game-body .core-info .game-price .true-price p:first-child,
 .game-view .game-body .core-info .game-price .sale-price .old-price p:first-child{
     text-decoration: underline;
+}
+
+.game-view .game-body .core-info .sale-range{
+    color: var(--text);
 }
 
 .game-view .game-body .core-info .add-cart{
