@@ -430,7 +430,7 @@ const setLinkGameView = () => {
   document.querySelectorAll(".game").forEach((a) => {
     a.addEventListener("click", () => {
       // Get data
-      console.log(a);
+      console.log(a.querySelector(".title"));
 
       // Make it appears
       // document.querySelectorAll(".body").forEach((e) => {
