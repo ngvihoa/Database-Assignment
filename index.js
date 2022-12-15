@@ -78,6 +78,7 @@ var swiper4 = new Swiper(".body-inner-8", {
 });
 
 
+
 // Initial Ratings
 
 // Total Stars
@@ -106,7 +107,7 @@ function getRatings(rate) {
 getRatings(rate);
 
 
-// change page
+// Change page
 document.querySelector(".sub-head-browse").addEventListener("click", ()=>{
   document.querySelectorAll(".sub-head-e").forEach((e)=>{
     e.classList.remove("underline");
@@ -127,6 +128,7 @@ document.querySelector(".button7-learnmore").addEventListener("click", ()=>{
       e.classList.add("no-display");
       if(e.classList.contains("browse")) e.classList.remove("no-display");
   });
+  window.scrollTo(0, 0);  
 })
 
 document.querySelector(".sub-head-cart").addEventListener("click", ()=>{
@@ -163,13 +165,13 @@ document.querySelector(".sub-head-discover").addEventListener("click", ()=>{
 })
 
 
-// show game view
+// Show game view
 document.querySelectorAll(".game").forEach((a)=>{
   a.addEventListener("click", ()=>{
     document.querySelectorAll(".body").forEach((e)=>{
       e.classList.add("no-display");
       if(e.classList.contains("gv")) e.classList.remove("no-display");
     });
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);  
   })
 });

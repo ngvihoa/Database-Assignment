@@ -57,6 +57,7 @@ a{
     height: 50px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .head-nav .head-nav-b1 li a{
@@ -265,6 +266,7 @@ a{
     padding: 10px 25px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /*   body-outer-2    */
@@ -474,6 +476,7 @@ a{
     height: 100px;
     border-radius: 20px;
     padding: 10px 10px 10px 20px;
+    cursor: pointer;
 }
 
 .body .body-outer-3 .board .board-list .game:hover,
@@ -610,6 +613,7 @@ a{
     border: 1px solid var(--text);
     color: var(--text);
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .body-outer-4 .body4-list{
@@ -621,6 +625,7 @@ a{
 .body-outer-4 .body4-list .game{
     flex: 1;
     /* border: 1px solid red; */
+    cursor: pointer;
 }
 
 .body-outer-4 .body4-list .game a{
@@ -674,6 +679,7 @@ a{
     background-position: center;
     background-size: cover;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .body .body-outer-7 .body7-text{
@@ -916,12 +922,17 @@ a{
     border-bottom: 1px solid var(--head-background);
 }
 
+.body6-info .body6-filter .sale-game{
+    cursor: pointer;
+}
+
 .body6-info .body6-filter ul li{
     list-style: none;
     padding: 20px 0;
     display: flex;
     align-items: center;
     font-weight: 300;
+    cursor: pointer;
 }
 
 .body6-info .body6-filter ul li:hover{
@@ -1284,6 +1295,7 @@ a{
 
 .body .cart-body .cart-game-list .game-game .game-action .remove{
     border-bottom: 1px solid var(--sub-text);
+    cursor: pointer;
     transition: 0.3s ease
 }
 
@@ -1339,6 +1351,7 @@ a{
     font-size: 1.2rem;
     border-radius: 5px;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .body .cart-body .payment-box .checkout:hover{
@@ -1385,6 +1398,7 @@ a{
 
 .footer .footer-content .footer-ref ul li i:hover{
     color: #0074e4;
+    cursor: pointer;
 }
 
 .footer .footer-content .footer-lay{
@@ -1578,6 +1592,7 @@ a{
     background-color: #0074e4;
     color: var(--text);
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .game-view .game-body .core-info .add-cart:hover{
