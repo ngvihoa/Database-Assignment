@@ -409,18 +409,20 @@ const getAllGame = async () => {
   return tmp;
 };
 
+
 const getSaleGame = async () => {
   let salegamelist = await fetch(
     `https://db-game-be.vercel.app/api/game?onSalePromo=true`
   );
   salegamelist = await salegamelist.json();
-  let tmp = salegamelist;
-  let dlclist = await getAllDLC();
-  for(let i in dlclist){
-    if(dlclist[i].priceWithDiscount !== dlclist[i].price) tmp.push(dlclist[i]);
-  }
-  // console.log(tmp);
-  return tmp;
+  // let tmp = salegamelist;
+  // let dlclist = await getAllDLC();
+  // for(let i in dlclist){
+  //   if(dlclist[i].priceWithDiscount !== dlclist[i].price) tmp.push(dlclist[i]);
+  // }
+  // // console.log(tmp);
+  // return tmp;
+  return salegamelist
 }
 
 // Initial Ratings
