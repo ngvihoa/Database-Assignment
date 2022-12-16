@@ -907,6 +907,7 @@ a{
     background-color: var(--head-background);
     font-size: 0.9rem;
     color: var(--text);
+    width: 100%;
 }
 
 .body6-info .body6-filter .header-tag{
@@ -1496,6 +1497,14 @@ a{
 .game-view .game-body .main-body .specification .plat-table{
     background-color: var(--head-background);
     border-radius: 10px;
+}
+
+.game-view .game-body .main-body .specification .no-spec{
+    font-size: 1rem;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .game-view .game-body .main-body .specification .platform-req{

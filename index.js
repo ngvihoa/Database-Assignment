@@ -288,40 +288,80 @@ const gameView = `<div class="game-view">
 let cart_list;
 
 const getDetailsProduct = async (name) => {
-  let gamelist = await fetch(
-    `https://db-game-be.vercel.app/api/game/all`
-  );
-  gamelist = await gamelist.json();
-  for(let i in gamelist){
-    if(gamelist[i].gameName === name){
-      let gamedetails = await fetch(
-        `https://db-game-be.vercel.app/api/game?id=${gamelist[i].gameId}`
-      );
-      gamedetails = await gamedetails.json();
-      return gamedetails;
+  let tmptmp = [];
+  for(let k = 0; ; k++){
+    let gamelist = await fetch(
+      `https://db-game-be.vercel.app/api/game/all?page=${k}`
+    );
+    gamelist = await gamelist.json();
+    if(Object.keys(gamelist).length === 0){
+      break;
+    }
+    for(let i in gamelist){
+      if(gamelist[i].gameName === name){
+        let gamedetails = await fetch(
+          `https://db-game-be.vercel.app/api/game?id=${gamelist[i].gameId}`
+        );
+        gamedetails = await gamedetails.json();
+        return gamedetails;
+      }
+    }
+    tmptmp.push(gamelist);
+  }
+  for(let l in tmptmp){
+    for(let i in tmptmp[l]){
+      let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${tmptmp[l][i].gameId}`);
+      dlc = await dlc.json();
+      for(let j in dlc){
+        if(dlc[j].dlcName === name){
+          let dlcdetails = await fetch(
+            `https://db-game-be.vercel.app/api/dlc/${dlc[j].dlcId}`
+          );
+          dlcdetails = await dlcdetails.json();
+          return dlcdetails;
+        }
+      }
     }
   }
   // console.log(gamelist);
   // let ans = [];
-  let tmp = [];
-  for(let i in gamelist){
-    let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${gamelist[i].gameId}`);
-    dlc = await dlc.json();
-    for(let j in dlc){
-      tmp.push(dlc[j]);
-    }
-  }
-  for(let i in tmp){
-    if(tmp[i].dlcName === name){
-      let dlcdetails = await fetch(
-        `https://db-game-be.vercel.app/api/dlc/${tmp[i].dlcId}`
-      );
-      dlcdetails = await dlcdetails.json();
-      return dlcdetails;
-    }
-  }
   // console.log(tmp);
 }
+
+// const getGenreDLC = async (name) => {
+//   let gamelist = await fetch(
+//     `https://db-game-be.vercel.app/api/game/all`
+//   );
+//   gamelist = await gamelist.json();
+//   // console.log(gamelist);
+//   // let tmp = [];
+//   for(let i in gamelist){
+//     let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${gamelist[i].gameId}`);
+//     dlc = await dlc.json();
+//     for(let j in dlc){
+//       if(dlc[j].dlcName === name) return gamelist[i];
+//     }
+//   }
+// }
+
+
+// const getGenreGame = async () => {
+//   let gamelist = await fetch(
+//     `https://db-game-be.vercel.app/api/game/all`
+//   );
+//   gamelist = await gamelist.json();
+//   let tmp = gamelist;
+//   // for(let i in gamelist){
+//   //   let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${gamelist[i].gameId}`);
+//   //   dlc = await dlc.json();
+//   //   for(let j in dlc){
+//   //     tmp.push(dlc[j]);
+//   //   }
+//   // }
+//   // console.log(tmp);
+//   return tmp;
+// };
+
 
 const getGameGenre = async (genre) => {
   let gamelist = await fetch(
@@ -340,46 +380,29 @@ const getGameGenre = async (genre) => {
   return tmp;
 };
 
-// const getDLCGenre = async (genre) => {
-//   let list = await fetch(`https://db-game-be.vercel.app/api/Dlc?genre=${genre}`);
-//   let data = await list.json();
-//   return data;
-// }
-
-// getGameGenre('Action').then( data => {
-//   console.log(typeof data);
-// }
-// );
-
-const getAllDLC = async () => {
-  let gamelist = await fetch(
-    `https://db-game-be.vercel.app/api/game/all`
-  );
-  gamelist = await gamelist.json();
-  // console.log(gamelist);
-  let tmp = [];
-  for(let i in gamelist){
-    let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${gamelist[i].gameId}`);
-    dlc = await dlc.json();
-    for(let j in dlc){
-      tmp.push(dlc[j]);
-    }
-  }
-  return tmp;
-}
-
 const getAllGame = async () => {
-  let gamelist = await fetch(
-    `https://db-game-be.vercel.app/api/game/all`
-  );
-  gamelist = await gamelist.json();
-  // console.log(gamelist);
-  let tmp = gamelist;
-  for(let i in gamelist){
-    let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${gamelist[i].gameId}`);
+  let tmptmp = [];
+  let tmp = [];
+  for(let k = 0; ; k++){
+    let gamelist = await fetch(
+      `https://db-game-be.vercel.app/api/game/all?page=${k}`
+    );
+    gamelist = await gamelist.json();
+    if(Object.keys(gamelist).length === 0){
+      break;
+    }
+    for(let i in gamelist){
+      tmp.push(gamelist[i]);
+    }
+    tmptmp.push(gamelist);
+  }
+  for(let l in tmptmp){
+    for(let i in tmptmp[l]){
+      let dlc = await fetch(`https://db-game-be.vercel.app/api/dlc?gameId=${tmptmp[l][i].gameId}`);
     dlc = await dlc.json();
-    for(let j in dlc){
-      tmp.push(dlc[j]);
+      for(let j in dlc){
+        tmp.push(dlc[j]);
+      }
     }
   }
   // console.log(tmp);
@@ -404,12 +427,9 @@ const getSaleGame = async () => {
 
 // Total Stars
 const starsTotal = 5;
-
-// get the rating number
-let rate = document.querySelector(".number-rating").innerHTML;
-
 // Get ratings
-function getRatings(rate) {
+function getRatings() {
+  let rate = document.querySelector(".number-rating").innerHTML;
   // Get percentage
   let starPercentage = (rate / starsTotal) * 100;
 
@@ -423,34 +443,274 @@ function getRatings(rate) {
   document.querySelector(".number-rating").innerHTML = rate;
 }
 
-getRatings(rate);
+let cartList = [];
 
 // Show Game view
 const setLinkGameView = () => {
   document.querySelectorAll(".game").forEach((a) => {
-    a.addEventListener("click", () => {
+    a.addEventListener("click", async () => {
       // Get data
-      console.log(a.querySelector(".title"));
+      let name = await a.querySelector(".title").innerHTML;
+      await getDetailsProduct(name).then(data => {
+        console.log(data);
+        let gameview_place = document.querySelector(".game-view");
+        if(data[0].hasOwnProperty("dlcId")){
+          gameview_place.innerHTML = `<div class="game-head"></div>
+          <div class="game-body">
+              <div class="main-body">
+                  <img src="./test8.jpg" alt="" class="game-img">
+                  <div class="game-genre">
+                      <div class="head">Genres</div>
+                      <div class="genre">
+                          <div>RPG</div>
+                          <div>Action</div>
+                          <div>MMO</div>
+                      </div>
+                  </div>
+                  <div class="game-descript">
+                      <p>About the game</p>
+                      <p></p>
+                  </div>
+                  <div class="game-rating">
+                      <div class="head">Game Rating</div>
+                      <div class="star-cont">
+                          <div class="stars-outer">
+                              <div class="stars-inner"></div>
+                          </div>
+                          <span class="number-rating">3.5</span>
+                      </div>
+                  </div>
+                  <div class="specification">
+                      <p>Specification</p>
+                      <div class="plat-table no-spec">
+                        No Specification
+                      </div>
+                  </div>
+              </div>
+              <div class="core-info">
+                  <img src="./test8-logo.jpg" alt="" class="game-logo">
+                  <div class="game-type"></div>
+                  <div class="game-price">
+                  </div>
+                  <div class="sale-range"></div>
+                  <button class="add-cart">ADD TO CART</button>
+                  <div class="core">
+                      <div class="dev">
+                          <p>Developer</p>
+                          <p></p>
+                      </div>
+                      <div class="release-date">
+                          <p>Release Date</p>
+                          <p></p>
+                      </div>
+                      <div class="platform">
+                          <p>Platform</p>
+                          <p>Windows</p>
+                      </div>
+                  </div>
+              </div>
+          </div>`;
+
+          gameview_place.querySelector(".game-head").innerHTML = data[0].dlcName;
+          //thiếu genre
+          gameview_place.querySelectorAll(".game-descript p")[1].innerHTML = data[0].description;
+          // thiếu rating
+          gameview_place.querySelector(".game-type").innerHTML = "DLC";
+          let gamePrice = gameview_place.querySelector(".game-price");
+          if(data[0].price === 0){
+            gamePrice.innerHTML = `<div class="free-price">Free</div>`;
+          }else if(data[0].price === data[0].priceWithDiscount){
+            gamePrice.innerHTML = `<div class="true-price"><p>$</p><p class="price-number">${data[0].price}</p></div>`;
+          }else{
+            gamePrice.innerHTML = `<div class="sale-price">
+            <div class="sale-box">-${(1-data[0].priceWithDiscount/data[0].price) * 100}%</div>
+            <div class="old-price">
+                <p>$</p><p class="price-number">${data[0].price}</p>
+            </div>
+            </div>
+            <div class="true-price"><p>$</p><p class="price-number">${data[0].priceWithDiscount}</p></div>`;
+          }
+          gameview_place.querySelectorAll(".dev p")[1].innerHTML = data[0].devName;
+          let RD = "";
+          for(let m = 0; m < 10; m++){
+            RD += data[0].releaseDate[m];
+          }
+          gameview_place.querySelectorAll(".release-date p")[1].innerHTML = RD;
+        }else{
+          gameview_place.innerHTML = `<div class="game-head"></div>
+          <div class="game-body">
+              <div class="main-body">
+                  <img src="./test8.jpg" alt="" class="game-img">
+                  <div class="game-genre">
+                      <div class="head">Genres</div>
+                      <div class="genre">
+                          <div>RPG</div>
+                          <div>Action</div>
+                          <div>MMO</div>
+                      </div>
+                  </div>
+                  <div class="game-descript">
+                      <p>About the game</p>
+                      <p></p>
+                  </div>
+                  <div class="game-rating">
+                      <div class="head">Game Rating</div>
+                      <div class="star-cont">
+                          <div class="stars-outer">
+                              <div class="stars-inner"></div>
+                          </div>
+                          <span class="number-rating">3.5</span>
+                      </div>
+                  </div>
+                  <div class="specification">
+                      <p>Specification</p>
+                      <div class="plat-table">
+                          <div class="platform-req">
+                              <div class="plat">WINDOWS</div>
+                              <div class="minimum no">
+                                  <div class="head">Minimum</div>
+                                  <div class="os">
+                                      <p>OS</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="cpu">
+                                      <p>Processor</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="ram">
+                                      <p>Memory</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="min-storage">
+                                      <p>Storage</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="gpu">
+                                      <p>Graphics</p>
+                                      <p></p>
+                                  </div>
+                              </div>
+                              <div class="recommended no">
+                                  <div class="head">Recommended</div>
+                                  <div class="os">
+                                      <p>OS</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="cpu">
+                                      <p>Processor</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="ram">
+                                      <p>Memory</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="min-storage">
+                                      <p>Storage</p>
+                                      <p></p>
+                                  </div>
+                                  <div class="gpu">
+                                      <p>Graphics</p>
+                                      <p></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="core-info">
+                  <img src="./test8-logo.jpg" alt="" class="game-logo">
+                  <div class="game-type">BASE GAME</div>
+                  <div class="game-price">
+                  </div>
+                  <div class="sale-range"></div>
+                  <button class="add-cart">ADD TO CART</button>
+                  <div class="core">
+                      <div class="dev">
+                          <p>Developer</p>
+                          <p></p>
+                      </div>
+                      <div class="release-date">
+                          <p>Release Date</p>
+                          <p></p>
+                      </div>
+                      <div class="platform">
+                          <p>Platform</p>
+                          <p>Windows</p>
+                      </div>
+                  </div>
+              </div>
+          </div>`;
+
+          gameview_place.querySelector(".game-head").innerHTML = data[0].gameName;
+          //thiếu genre
+          gameview_place.querySelectorAll(".game-descript p")[1].innerHTML = data[0].description;
+          // thiếu ratin
+          for(let k in data[0].sys_req){
+            let minimum;
+            if(k == 0){
+              console.log("minimum");
+              minimum = gameview_place.querySelector(".minimum");
+            }else{
+              console.log("recommended");
+              minimum = gameview_place.querySelector(".recommended");
+            }
+            minimum.querySelectorAll(".os p")[1].innerHTML = data[0].sys_req[k].os;
+            minimum.querySelectorAll(".cpu p")[1].innerHTML = data[0].sys_req[k].cpu;
+            minimum.querySelectorAll(".ram p")[1].innerHTML = `${data[0].sys_req[k].ram} GB`;
+            minimum.querySelectorAll(".min-storage p")[1].innerHTML = `${data[0].sys_req[k].minStorage} GB`;
+            minimum.querySelectorAll(".gpu p")[1].innerHTML = data[0].sys_req[k].gpu;
+          }
+          // BASE GAME Default
+          let gamePrice = gameview_place.querySelector(".game-price");
+          if(data[0].price === 0){
+            gamePrice.innerHTML = `<div class="free-price">Free</div>`;
+          }else if(data[0].price === data[0].priceWithDiscount){
+            gamePrice.innerHTML = `<div class="true-price"><p>$</p><p class="price-number">${data[0].price}</p></div>`;
+          }else{
+            gamePrice.innerHTML = `<div class="sale-price">
+            <div class="sale-box">-${(1-data[0].priceWithDiscount/data[0].price) * 100}%</div>
+            <div class="old-price">
+                <p>$</p><p class="price-number">${data[0].price}</p>
+            </div>
+            </div>
+            <div class="true-price"><p>$</p><p class="price-number">${data[0].priceWithDiscount}</p></div>`;
+          }
+          gameview_place.querySelectorAll(".dev p")[1].innerHTML = data[0].devName;
+          let RD = "";
+          for(let m = 0; m < 10; m++){
+            RD += data[0].releaseDate[m];
+          }
+          gameview_place.querySelectorAll(".release-date p")[1].innerHTML = RD;
+        }
+        // addEvent addCartButton
+        console.log(gameview_place.querySelector("button.add-cart"));
+        gameview_place.querySelector("button.add-cart").addEventListener("click", ()=>{
+          cartList.push(data[0]);
+          console.log(cartList);
+        });
+
+        getRatings();
+      });
 
       // Make it appears
-      // document.querySelectorAll(".body").forEach((e) => {
-      //   e.classList.add("no-display");
-      //   if (e.classList.contains("gv")) e.classList.remove("no-display");
-      // });
-      // window.scrollTo(0, 0);
+      await document.querySelectorAll(".body").forEach((e) => {
+        e.classList.add("no-display");
+        if (e.classList.contains("gv")) e.classList.remove("no-display");
+      });
+      await window.scrollTo(0, 0);
     });
   });
 };
 
-const removeLinkGameView = () => {
-  document.querySelectorAll(".game").forEach((a) => {
-    a.removeEventListener("click", () => {
-      // Get data
-      console.log(a);
+// const removeLinkGameView = () => {
+//   document.querySelectorAll(".game").forEach((a) => {
+//     a.removeEventListener("click", () => {
+//       // Get data
+//       console.log(a);
 
-    });
-  });
-};
+//     });
+//   });
+// };
 
 const initialBrowse = () => {
   let box = document.querySelector(".body6");
@@ -526,15 +786,13 @@ const initialBrowse = () => {
         box.innerHTML += inner_tmp;
       }
   }).then(()=>{
-    removeLinkGameView();
+    // removeLinkGameView();
     setLinkGameView();
 
   });
 }
 
 initialBrowse();
-
-
 
 // Browse page open
 document.querySelector(".sub-head-browse").addEventListener("click", () => {
@@ -547,7 +805,7 @@ document.querySelector(".sub-head-browse").addEventListener("click", () => {
     if (e.classList.contains("browse")) e.classList.remove("no-display");
   });
 
-  removeLinkGameView();
+  // removeLinkGameView();
   // call API
   let box = document.querySelector(".body6");
   box.innerHTML = "";
@@ -627,7 +885,6 @@ document.querySelector(".sub-head-browse").addEventListener("click", () => {
 
 });
 
-
 // Button to Browse
 document.querySelector(".button7-learnmore").addEventListener("click", () => {
   document.querySelectorAll(".sub-head-e").forEach((e) => {
@@ -640,7 +897,7 @@ document.querySelector(".button7-learnmore").addEventListener("click", () => {
   });
   window.scrollTo(0, 0);
 
-  removeLinkGameView();
+  // removeLinkGameView();
   //call API
   let box = document.querySelector(".body6");
   box.innerHTML = "";
@@ -715,13 +972,11 @@ document.querySelector(".button7-learnmore").addEventListener("click", () => {
       box.innerHTML += inner_tmp;
     }
 
-    
     setLinkGameView();
 
   });
 
 });
-
 
 //Cart page open
 document.querySelector(".sub-head-cart").addEventListener("click", () => {
@@ -733,8 +988,98 @@ document.querySelector(".sub-head-cart").addEventListener("click", () => {
     e.classList.add("no-display");
     if (e.classList.contains("cart")) e.classList.remove("no-display");
   });
-});
 
+  let cart_page__ = document.querySelector(".cart-body");
+  let cart_page_list;
+
+  for(let i in cartList){
+    console.log(cartList[i]);
+    let t = cartList[i].hasOwnProperty("dlcId") ? "DLC" : "BASE GAME";
+    let n = cartList[i].hasOwnProperty("dlcId") ? cartList[i].dlcName : cartList[i].gameName;
+    let game_price;
+    if(cartList[i].price === 0){
+      game_price = `<div class="free-price">Free</div>`;
+    }
+    else if(cartList[i].price === cartList[i].priceWithDiscount){
+      game_price = `<div class="true-price"><p>$</p><p class="price-number">${cartList[i].price}</p></div>`;
+    }
+    else{
+      game_price = `
+      <div class="sale-price">
+          <div class="sale-box">-${(1-cartList[i].priceWithDiscount/cartList[i].price) * 100}%</div>
+          <div class="old-price">
+              <p>$</p><p class="price-number">${cartList[i].price}</p>
+          </div>
+      </div>
+      <div class="true-price"><p>$</p><p class="price-number">${cartList[i].priceWithDiscount}</p></div>`;
+    }
+    let game_template = `
+    <div class="game-game">
+        <div class="game-img"></div>
+        <div class="game-content">
+            <div class="type">${t}</div>
+            <div class="title">${n}</div>
+        </div>
+        <div class="game-action">
+            <div class="price">
+            ${game_price}
+            </div>
+            <div class="remove">Remove</div>
+        </div>
+    </div>`;
+    cart_page_list += game_template;
+  }
+
+  let totalPrice = 0;
+
+  for(let i in cartList){
+    if(cartList[i].price !== cartList[i].priceWithDiscount){
+      totalPrice += cartList[i].priceWithDiscount;
+    }
+    else{
+      totalPrice += cartList[i].price;
+    }
+  }
+
+  cart_page__.innerHTML = `
+  <div class="cart-game-list">
+  ${cart_page_list}
+  </div>
+  <div class="payment-box">
+    <div class="payment-head">Games Summary</div>
+    <div class="total-field">
+        <div class="field-name">Total Price</div>
+        <div class="price">
+            <p>$</p><p class="price-number payment-box-price">${totalPrice}</p>
+        </div>
+    </div>
+    <div class="notice">* Already includes discount</div>
+    <button class="checkout">CHECK OUT</button>
+  </div>`;
+
+  // cart_page__.querySelectorAll(".remove").forEach(ele => {
+  //     ele.addEventListener("click", ()=>{
+  //       let el =  ele.parentElement.parentElement;
+  //       let name_rev = el.querySelector(".title").innerHTML;
+  //       console.log(name_rev);
+  //       cartList = cartList.filter((cartEl)=> (cartEl.gameName !== name_rev || cartEl.dlcName !== name_rev))
+        
+  //       let totalPrice = 0;
+
+  //       for(let i in cartList){
+  //         if(cartList[i].price !== cartList[i].priceWithDiscount){
+  //           totalPrice += cartList[i].priceWithDiscount;
+  //         }
+  //         else{
+  //           totalPrice += cartList[i].price;
+  //         }
+  //       }
+  //       cart_page__.querySelector(".payment-box-price").innerHTML = totalPrice;
+  //       el.remove();
+  //     })
+  // })
+
+});
 
 // Library page open
 document.querySelector(".sub-head-library").addEventListener("click", () => {
@@ -746,7 +1091,7 @@ document.querySelector(".sub-head-library").addEventListener("click", () => {
     e.classList.add("no-display");
     if (e.classList.contains("library")) e.classList.remove("no-display");
   });
-  removeLinkGameView();
+  // removeLinkGameView();
   setLinkGameView();
 });
 
@@ -760,8 +1105,8 @@ document.querySelector(".sub-head-discover").addEventListener("click", () => {
     e.classList.add("no-display");
     if (e.classList.contains("discover")) e.classList.remove("no-display");
   });
-  removeLinkGameView();
-  // setLinkGameView();
+  // removeLinkGameView();
+  setLinkGameView();
 });
 
 
@@ -841,7 +1186,7 @@ document.querySelectorAll(".body6-filter-genre").forEach( e => {
         box.innerHTML += inner_tmp;
       }
 
-      removeLinkGameView();
+      // removeLinkGameView();
       setLinkGameView();
     });
   })
@@ -923,7 +1268,7 @@ document.querySelectorAll(".sale-game").forEach( e => {
         box.innerHTML += inner_tmp;
       }
 
-      removeLinkGameView();
+      // removeLinkGameView();
       setLinkGameView();
     });
     
